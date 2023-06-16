@@ -23,7 +23,7 @@ It should also be noted that Shap currently cannot handle Catboost or LightGBM s
 ## Install
 
 To install this specific fork use:
-`pip install git+https://github.com/0zean/shap-windows.git`
+`pip install git+https://github.com/0zean/shap.git`
 
 ## Tree ensemble example (XGBoost/LightGBM/CatBoost/scikit-learn/pyspark models)
 
