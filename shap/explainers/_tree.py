@@ -1607,9 +1607,20 @@ class CatBoostTreeModelLoader:
         # cb_model.save_model("cb_model.json", format="json")
         # self.loaded_cb_model = json.load(open("cb_model.json", "r"))
         import tempfile
+        
+        # Allow 'open' function to access the NamedTemporaryFile in Windows temp folder
+        def temp_opener(name, flag, mode=0o777):
+            return os.open(name, flag | os.O_TEMPORARY, mode)
+
         tmp_file = tempfile.NamedTemporaryFile()
         cb_model.save_model(tmp_file.name, format="json")
-        self.loaded_cb_model = json.load(open(tmp_file.name))
+
+        # Check if we are on Windows
+        if os.name == 'nt':
+            self.loaded_cb_model = json.load(open(tmp_file.name, "r", opener=temp_opener))
+        else:
+            self.loaded_cb_model = json.load(open(tmp_file.name, "r"))
+        
         tmp_file.close()
 
         # load the CatBoost oblivious trees specific parameters
