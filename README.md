@@ -22,13 +22,8 @@ It should also be noted that Shap currently cannot handle Catboost or LightGBM s
 
 ## Install
 
-SHAP can be installed from either [PyPI](https://pypi.org/project/shap) or [conda-forge](https://anaconda.org/conda-forge/shap):
-
-<pre>
-pip install shap
-<i>or</i>
-conda install -c conda-forge shap
-</pre>
+To install this specific fork use:
+`pip install git+https://github.com/0zean/shap-windows.git`
 
 ## Tree ensemble example (XGBoost/LightGBM/CatBoost/scikit-learn/pyspark models)
 
