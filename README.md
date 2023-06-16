@@ -13,6 +13,11 @@
 
 <!--**SHAP (SHapley Additive exPlanations)** is a unified approach to explain the output of any machine learning model. SHAP connects game theory with local explanations, uniting several previous methods [1-7] and representing the only possible consistent and locally accurate additive feature attribution method based on expectations (see our [papers](#citations) for details and citations).-->
 
+## Fixes
+
+This Fork adds a fix for Catboost Models on Windows where there is an `AttributeError: TreeEnsemble instance has no attribute 'values'` caused by not having proper access to the temporary file created in the `CatBoostTreeModelLoader` class in `_tree.py`.
+
+It should also be noted that Shap currently cannot handle Catboost or LightGBM splits on categorical or binary varibales. Therefore you should ensure categorical varibales are encoded beforehand and binary varibales are converted to float dtype.
 
 
 ## Install
