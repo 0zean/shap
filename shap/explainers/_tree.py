@@ -1607,6 +1607,7 @@ class CatBoostTreeModelLoader:
         # cb_model.save_model("cb_model.json", format="json")
         # self.loaded_cb_model = json.load(open("cb_model.json", "r"))
         import tempfile
+        import os
         
         # Allow 'open' function to access the NamedTemporaryFile in Windows temp folder
         def temp_opener(name, flag, mode=0o777):
